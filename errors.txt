@@ -1,0 +1,204 @@
+gateway.c: In function ‘AlarmProcess’:
+gateway.c:291:16: warning: missing terminating " character
+  291 |         printf("ALARM: %s value=%u limit=%u severity=%u
+      |                ^
+gateway.c:291:16: error: missing terminating " character
+  291 |         printf("ALARM: %s value=%u limit=%u severity=%u
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gateway.c:292:1: warning: missing terminating " character
+  292 | ",
+      | ^
+gateway.c:292:1: error: missing terminating " character
+  292 | ",
+      | ^~
+gateway.c:299:17: warning: missing terminating " character
+  299 |                 "%u %s %u %u %u
+      |                 ^
+gateway.c:299:17: error: missing terminating " character
+  299 |                 "%u %s %u %u %u
+      |                 ^~~~~~~~~~~~~~~
+gateway.c:300:1: warning: missing terminating " character
+  300 | ",
+      | ^
+gateway.c:300:1: error: missing terminating " character
+  300 | ",
+      | ^~
+gateway.c:301:22: warning: passing argument 2 of ‘fprintf’ makes pointer from integer without a cast [-Wint-conversion]
+  301 |                 event.timestamp,
+      |                 ~~~~~^~~~~~~~~~
+      |                      |
+      |                      uint32_t {aka unsigned int}
+In file included from gateway.c:1:
+/usr/include/stdio.h:358:44: note: expected ‘const char * restrict’ but argument is of type ‘uint32_t’ {aka ‘unsigned int’}
+  358 |                     const char *__restrict __format, ...) __nonnull ((1));
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+gateway.c: In function ‘PollModbus’:
+gateway.c:339:5: error: expected declaration specifiers before ‘lock’
+  339 |     lock.l_whence = SEEK_SET;
+      |     ^~~~
+gateway.c:341:5: error: expected declaration specifiers before ‘fcntl’
+  341 |     fcntl(db_fd, F_SETLKW, &lock);
+      |     ^~~~~
+gateway.c:343:5: error: expected declaration specifiers before ‘process_db’
+  343 |     process_db->holding_registers[REG_PRESSURE] =
+      |     ^~~~~~~~~~
+gateway.c:346:5: error: expected declaration specifiers before ‘process_db’
+  346 |     process_db->holding_registers[REG_FLOW] =
+      |     ^~~~~~~~~~
+gateway.c:349:5: error: expected declaration specifiers before ‘process_db’
+  349 |     process_db->holding_registers[REG_TEMPERATURE] =
+      |     ^~~~~~~~~~
+gateway.c:352:5: error: expected declaration specifiers before ‘process_db’
+  352 |     process_db->device_online = DEVICE_ONLINE;
+      |     ^~~~~~~~~~
+gateway.c:354:5: error: expected declaration specifiers before ‘process_db’
+  354 |     process_db->last_poll_time = time(NULL);
+      |     ^~~~~~~~~~
+gateway.c:356:5: error: expected declaration specifiers before ‘process_db’
+  356 |     process_db->poll_count++;
+      |     ^~~~~~~~~~
+gateway.c:358:5: error: expected declaration specifiers before ‘msync’
+  358 |     msync(process_db, sizeof(ProcessDB), MS_SYNC);
+      |     ^~~~~
+gateway.c:360:5: error: expected declaration specifiers before ‘lock’
+  360 |     lock.l_type = F_UNLCK;
+      |     ^~~~
+gateway.c:362:5: error: expected declaration specifiers before ‘fcntl’
+  362 |     fcntl(db_fd, F_SETLK, &lock);
+      |     ^~~~~
+gateway.c:364:5: error: expected declaration specifiers before ‘if’
+  364 |     if(process_db->holding_registers[REG_PRESSURE] > 3600)
+      |     ^~
+gateway.c:372:5: error: expected declaration specifiers before ‘if’
+  372 |     if(process_db->holding_registers[REG_FLOW] > 9000)
+      |     ^~
+gateway.c:380:5: error: expected declaration specifiers before ‘if’
+  380 |     if(process_db->holding_registers[REG_TEMPERATURE] > 1200)
+      |     ^~
+gateway.c:388:5: error: expected declaration specifiers before ‘return’
+  388 |     return 0;
+      |     ^~~~~~
+gateway.c:389:1: error: expected declaration specifiers before ‘}’ token
+  389 | }
+      | ^
+gateway.c:393:5: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ssize_t’
+  393 |     ssize_t len = read(client_fd, buffer, sizeof(buffer)-1);
+      |     ^~~~~~~
+gateway.c:395:5: error: expected declaration specifiers before ‘if’
+  395 |     if(len <= 0)
+      |     ^~
+gateway.c:403:5: error: expected declaration specifiers before ‘if’
+  403 |     if(strncmp(buffer, "PRESSURE", 8) == 0)
+      |     ^~
+gateway.c:407:18: warning: missing terminating " character
+  407 |                  "PRESSURE=%u bar
+      |                  ^
+gateway.c:407:18: error: missing terminating " character
+  407 |                  "PRESSURE=%u bar
+      |                  ^~~~~~~~~~~~~~~~
+gateway.c:408:1: warning: missing terminating " character
+  408 | ",
+      | ^
+gateway.c:408:1: error: missing terminating " character
+  408 | ",
+      | ^~
+gateway.c:411:5: error: expected declaration specifiers before ‘else’
+  411 |     else if(strncmp(buffer, "FLOW", 4) == 0)
+      |     ^~~~
+gateway.c:415:18: warning: missing terminating " character
+  415 |                  "FLOW=%u L/min
+      |                  ^
+gateway.c:415:18: error: missing terminating " character
+  415 |                  "FLOW=%u L/min
+      |                  ^~~~~~~~~~~~~~
+gateway.c:416:1: warning: missing terminating " character
+  416 | ",
+      | ^
+gateway.c:416:1: error: missing terminating " character
+  416 | ",
+      | ^~
+gateway.c:419:5: error: expected declaration specifiers before ‘else’
+  419 |     else if(strncmp(buffer, "TEMPERATURE", 11) == 0)
+      |     ^~~~
+gateway.c:423:18: warning: missing terminating " character
+  423 |                  "TEMPERATURE=%u C
+      |                  ^
+gateway.c:423:18: error: missing terminating " character
+  423 |                  "TEMPERATURE=%u C
+      |                  ^~~~~~~~~~~~~~~~~
+gateway.c:424:1: warning: missing terminating " character
+  424 | ",
+      | ^
+gateway.c:424:1: error: missing terminating " character
+  424 | ",
+      | ^~
+gateway.c:427:5: error: expected declaration specifiers before ‘else’
+  427 |     else
+      |     ^~~~
+gateway.c:431:18: warning: missing terminating " character
+  431 |                  "UNKNOWN TAG
+      |                  ^
+gateway.c:431:18: error: missing terminating " character
+  431 |                  "UNKNOWN TAG
+      |                  ^~~~~~~~~~~~
+gateway.c:432:1: warning: missing terminating " character
+  432 | ");
+      | ^
+gateway.c:432:1: error: missing terminating " character
+  432 | ");
+      | ^~~
+gateway.c:435:5: error: expected declaration specifiers before ‘write’
+  435 |     write(client_fd, response, strlen(response));
+      |     ^~~~~
+gateway.c:437:5: error: expected declaration specifiers before ‘close’
+  437 |     close(client_fd);
+      |     ^~~~~
+gateway.c:438:1: error: expected declaration specifiers before ‘}’ token
+  438 | }
+      | ^
+gateway.c:443:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  443 | {
+      | ^
+gateway.c:461:5: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘CreateDatabase’
+  461 |     CreateDatabase();
+      |     ^~~~~~~~~~~~~~
+gateway.c:463:5: error: expected declaration specifiers before ‘SetupTimer’
+  463 |     SetupTimer();
+      |     ^~~~~~~~~~
+gateway.c:465:5: error: expected declaration specifiers before ‘CreateSocket’
+  465 |     CreateSocket();
+      |     ^~~~~~~~~~~~
+gateway.c:467:5: error: expected declaration specifiers before ‘StartAlarmProcess’
+  467 |     StartAlarmProcess();
+      |     ^~~~~~~~~~~~~~~~~
+gateway.c:471:5: error: expected declaration specifiers before ‘fds’
+  471 |     fds[0].fd = timer_fd;
+      |     ^~~
+gateway.c:472:5: error: expected declaration specifiers before ‘fds’
+  472 |     fds[0].events = POLLIN;
+      |     ^~~
+gateway.c:474:5: error: expected declaration specifiers before ‘fds’
+  474 |     fds[1].fd = socket_fd;
+      |     ^~~
+gateway.c:475:5: error: expected declaration specifiers before ‘fds’
+  475 |     fds[1].events = POLLIN;
+      |     ^~~
+gateway.c:477:5: error: parameter ‘missedPolls’ is initialized
+  477 |     int missedPolls = 0;
+      |     ^~~
+gateway.c:479:5: error: expected declaration specifiers before ‘while’
+  479 |     while(running)
+      |     ^~~~~
+gateway.c:520:5: error: expected declaration specifiers before ‘Cleanup’
+  520 |     Cleanup();
+      |     ^~~~~~~
+gateway.c:522:5: error: expected declaration specifiers before ‘return’
+  522 |     return 0;
+      |     ^~~~~~
+gateway.c:523:1: error: expected declaration specifiers before ‘}’ token
+  523 | }
+      | ^
+gateway.c:338:5: error: old-style parameter declarations in prototyped function definition
+  338 | int PollModbus(void)
+      |     ^~~~~~~~~~
+gateway.c:525: error: expected ‘{’ at end of input
